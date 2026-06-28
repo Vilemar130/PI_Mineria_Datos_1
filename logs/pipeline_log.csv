@@ -1,0 +1,13 @@
+Paso,Descripción,Filas,Nulos,Retención (%)
+0,Dataset original,8160,753,100.0
+1,Eliminación de duplicados (126 eliminados),8034,753,98.46
+2,Normalización subscription_plan (15 variantes → 3 categorías),8034,6913,98.46
+3,Normalización country (26 variantes → 7 países),8034,9152,98.46
+4,Normalización favorite_genre (28 variantes → 7 géneros),8034,10232,98.46
+5,"Valores imposibles en age → NaN (120 casos, rango válido 6–100)",8034,10352,98.46
+6,Tickets negativos → NaN (29 casos),8034,10381,98.46
+7,watch_time negativos → NaN (49 casos),8034,10430,98.46
+8,Winsorización watch_time k=3 (límite 2705 min),8034,10430,98.46
+9,Winsorización tickets k=3 (límite 4),8034,10430,98.46
+10,Parseo last_login_date (fechas inválidas → NaT),8034,10879,98.46
+11,Imputación diferenciada por mecanismo (age/genre/tickets: mediana-moda; watch_time: mediana/plan),8034,15328,98.46
