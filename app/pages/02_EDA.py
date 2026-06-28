@@ -135,7 +135,7 @@ st.divider()
 st.subheader("Heatmap de correlaciones entre variables numéricas")
 numeric_cols = ["age", "monthly_watch_time_mins", "customer_support_tickets"]
 corr_matrix = df[numeric_cols].corr()
-fig, ax = plt.subplots(figsize=(5, 3.5))
+fig, ax = plt.subplots(figsize=(8, 6))
 sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", center=0, fmt=".3f", square=True, ax=ax, linewidths=0.5)
 ax.set_title("Correlaciones numéricas")
 plt.tight_layout()
