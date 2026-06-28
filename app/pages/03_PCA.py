@@ -6,14 +6,15 @@ import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import os
+from pathlib import Path
 
 st.set_page_config(page_title="PCA | Streaming Analytics", page_icon="📉", layout="wide")
 st.title("📉 Escalamiento y Análisis de Componentes Principales (PCA)")
 
 @st.cache_data
 def cargar_y_computar():
-    base = os.path.dirname(os.path.dirname(__file__))
-    df = pd.read_csv(os.path.join(base, "data", "processed", "streaming_users_clean.csv"))
+    BASE_DIR = Path(__file__).resolve().parents[2]
+    df = pd.read_csv(BASE_DIR / "data" / "processed" / "streaming_users_clean.csv")
     features = ["age", "monthly_watch_time_mins", "customer_support_tickets"]
     X = df[features].copy()
 

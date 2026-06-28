@@ -4,15 +4,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parents[2]
 
 st.set_page_config(page_title="EDA | Streaming Analytics", page_icon="📊", layout="wide")
 st.title("📊 Análisis Exploratorio de Datos (EDA)")
 
 @st.cache_data
 def cargar_datos():
-    base = os.path.dirname(os.path.dirname(__file__))
-    return pd.read_csv(os.path.join(base, "data", "processed", "streaming_users_clean.csv"),
-                       parse_dates=["last_login_date"])
+    BASE_DIR = Path(__file__).resolve().parents[2]
+    return pd.read_csv(
+        BASE_DIR / "data" / "processed" / "streaming_users_clean.csv",
+        parse_dates=["last_login_date"])
 
 df = cargar_datos()
 sns.set_theme(style="whitegrid", palette="muted")
