@@ -14,9 +14,8 @@ st.caption("Fuente: `streaming_users_dirty.json` — dataset provisto por la cá
 @st.cache_data
 def cargar_datos():
     BASE_DIR = Path(__file__).resolve().parents[2]
-    #base = os.path.dirname(os.path.dirname(__file__))
-    raw_path = BASE_DIR / "data" / "raw" / "streaming_users_dirty.json" #raw_path = os.path.join(base, "data", "raw", "streaming_users_dirty.json")
-    clean_path = BASE_DIR / "data" / "processed" / "streaming_users_clean.csv" #clean_path = os.path.join(base, "data", "processed", "streaming_users_clean.csv")
+    raw_path = BASE_DIR / "data" / "raw" / "streaming_users_dirty.json" 
+    clean_path = BASE_DIR / "data" / "processed" / "streaming_users_clean.csv"
     with open(raw_path) as f:
         df_raw = pd.DataFrame(json.load(f))
     df_clean = pd.read_csv(clean_path, parse_dates=["last_login_date"])
@@ -89,11 +88,12 @@ problemas = pd.DataFrame({
 st.dataframe(problemas, use_container_width=True, hide_index=True)
 st.info("**Mecanismo MAR en watch_time:** la tasa de faltantes en Premium (10.4%) es 8× la de Básico (1.3%). La ausencia depende del plan → imputación por mediana de cada plan, no mediana global.")
 
+BASE_DIR = Path(__file__).resolve().parents[2]
 st.divider()
 st.header("3. Log del pipeline ETL")
-log_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs", "pipeline_log.csv")
+log_path = BASE_DIR / "logs" / "pipeline_log.csv"
 log_df = pd.read_csv(log_path)
-st.dataframe(log_df, use_container_width=True, hide_index=True)
+st.dataframe(log_df, width="stretch", hide_index=True)
 st.caption("Fuente: `logs/pipeline_log.csv`")
 
 st.divider()
