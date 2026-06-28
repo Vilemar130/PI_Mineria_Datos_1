@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import os
 import json
+from pathlib import Path
+
 
 st.set_page_config(page_title="Dataset | Streaming Analytics", page_icon="📁", layout="wide")
 
@@ -11,9 +13,10 @@ st.caption("Fuente: `streaming_users_dirty.json` — dataset provisto por la cá
 
 @st.cache_data
 def cargar_datos():
-    base = os.path.dirname(os.path.dirname(__file__))
-    raw_path = os.path.join(base, "data", "raw", "streaming_users_dirty.json")
-    clean_path = os.path.join(base, "data", "processed", "streaming_users_clean.csv")
+    BASE_DIR = Path(__file__).resolve().parents[2]
+    #base = os.path.dirname(os.path.dirname(__file__))
+    raw_path = BASE_DIR / "data" / "raw" / "streaming_users_dirty.json" #raw_path = os.path.join(base, "data", "raw", "streaming_users_dirty.json")
+    clean_path = BASE_DIR / "data" / "processed" / "streaming_users_clean.csv" #clean_path = os.path.join(base, "data", "processed", "streaming_users_clean.csv")
     with open(raw_path) as f:
         df_raw = pd.DataFrame(json.load(f))
     df_clean = pd.read_csv(clean_path, parse_dates=["last_login_date"])
