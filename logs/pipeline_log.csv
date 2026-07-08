@@ -1,0 +1,8 @@
+Paso,Descripción,Filas,Nulos,Retención (%)
+1.0,Preparación,8160,753,100.0
+2.0,Eliminación de Duplicados,8034,753,98.46
+3.0,Normalización,8034,1879,98.46
+4.0,Tratamiento de Outliers,8034,2153,98.46
+4.5,Winsorización (k=3) de extremos reales en tiempo y tickets,8034,2153,98.46
+5.0,Parseo de fechas,8034,2602,98.46
+6.0,Imputación de valores nulos,8034,795,98.46
