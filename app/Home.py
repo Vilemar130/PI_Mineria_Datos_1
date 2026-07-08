@@ -57,5 +57,5 @@ Usá el menú lateral para explorar cada sección del análisis:
 | 💡 **Conclusiones** | Hallazgos clave, limitaciones y próximos pasos |
 
 ### Repositorio
-🔗 [Ver código fuente en GitHub](https://github.com/val-martinetti/PI_Mineria_Datos_1)
+🔗 [Ver código fuente en GitHub](https://github.com/Vilemar130/PI_Mineria_Datos_1)
 """)
