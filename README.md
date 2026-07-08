@@ -4,7 +4,7 @@
 - **Integrantes:** Santiago Gallardo y Valeria Martinetti
 - **Materia:** Minería de Datos I
 - **Aplicación Web:** [Ver en Streamlit Cloud](https://pi-mineria-datos-1.streamlit.app/)
-- **Informe Final:** [Ver Informe en PDF](reports/informe_final.pdf)
+- **Informe Final:** [Ver Informe en PDF](https://github.com/Vilemar130/PI_Mineria_Datos_1/tree/main/reportes)
 
 ### Objetivo del Proyecto
 El propósito de este proyecto es analizar los patrones de consumo de los clientes de una plataforma de streaming, investigando si el tipo de plan de suscripción afecta el nivel de "engagement" (minutos visualizados) y el volumen de problemas técnicos reportados. Se busca realizar un análisis reproducible que vaya desde la limpieza de datos hasta el escalamiento y reducción dimensional, demostrando la capacidad de separar evidencia empírica de interpretaciones de negocio.
