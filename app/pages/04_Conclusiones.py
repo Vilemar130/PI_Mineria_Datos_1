@@ -158,4 +158,4 @@ resumen = pd.DataFrame({
         "Las variables numéricas son prácticamente independientes entre sí",
     ],
 })
-st.dataframe(resumen, use_container_width=True, hide_index=True)
+st.dataframe(resumen, width="stretch", hide_index=True)

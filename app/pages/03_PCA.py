@@ -48,7 +48,7 @@ vars_df = pd.DataFrame({
         "Interacción con el servicio técnico"
     ]
 })
-st.dataframe(vars_df, use_container_width=True, hide_index=True)
+st.dataframe(vars_df, width="stretch", hide_index=True)
 st.caption("Variables excluidas: user_id (identificador), categóricas (requieren codificación), last_login_date (769 NaT)")
 
 # ── POR QUÉ ESCALAR ───────────────────────────────────────────────────────────
@@ -60,13 +60,13 @@ with col1:
     st.subheader("Varianzas sin escalar")
     var_df = X.var().round(2).reset_index()
     var_df.columns = ["Variable", "Varianza"]
-    st.dataframe(var_df, use_container_width=True, hide_index=True)
+    st.dataframe(var_df, width="stretch", hide_index=True)
     st.error("Sin escalar, `monthly_watch_time_mins` domina el PCA por su magnitud, no por relevancia analítica.")
 with col2:
     st.subheader("Varianzas post-escalado (StandardScaler)")
     var_sc = X_scaled.var().round(4).reset_index()
     var_sc.columns = ["Variable", "Varianza"]
-    st.dataframe(var_sc, use_container_width=True, hide_index=True)
+    st.dataframe(var_sc, width="stretch", hide_index=True)
     st.success("Tras estandarizar, todas las variables tienen varianza = 1 y contribuyen de forma equitativa.")
 
 st.markdown("""
@@ -112,7 +112,7 @@ var_tab = pd.DataFrame({
     "Varianza explicada (%)": [f"{v*100:.1f}%" for v in var_expl],
     "Varianza acumulada (%)": [f"{v*100:.1f}%" for v in var_acum]
 })
-st.dataframe(var_tab, use_container_width=True, hide_index=True)
+st.dataframe(var_tab, width="stretch", hide_index=True)
 
 st.info("""
 **Interpretación del Scree Plot:** las tres componentes explican partes casi iguales de la varianza (~33% cada una).
@@ -128,7 +128,7 @@ st.header("4. Cargas (loadings) de las variables")
 
 col5, col6 = st.columns(2)
 with col5:
-    st.dataframe(loadings.round(4), use_container_width=True)
+    st.dataframe(loadings.round(4), width="stretch")
     st.markdown("""
 **Interpretación:** (verificar el signo/orden exacto contra la tabla de loadings de arriba — en
 la corrida de referencia del proyecto, `age` ≈ 0.67, `monthly_watch_time_mins` ≈ 0.40 y

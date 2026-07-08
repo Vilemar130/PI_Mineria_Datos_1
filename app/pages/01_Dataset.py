@@ -86,7 +86,7 @@ problemas = pd.DataFrame({
         "Imputado con valor fijo 'Otros'"
     ]
 })
-st.dataframe(problemas, use_container_width=True, hide_index=True)
+st.dataframe(problemas, width="stretch", hide_index=True)
 st.info("**Mecanismo MAR en watch_time:** la tasa de faltantes en Premium (10.4%) es x8 la de Básico (1.3%). La ausencia depende del plan → conviene imputar por mediana de cada plan en lugar de mediana global (pendiente de implementar; el pipeline actual usa mediana global).")
 st.warning("""
 **\\* Bug detectado en la normalización de `favorite_genre`:** el diccionario de mapeo usado en la
@@ -111,6 +111,6 @@ st.caption("Fuente: `logs/pipeline_log.csv`")
 st.divider()
 st.header("4. Vista previa del dataset limpio")
 n = st.slider("Filas a mostrar:", 5, 50, 10)
-st.dataframe(df.head(n), use_container_width=True)
+st.dataframe(df.head(n), width="stretch")
 st.subheader("Estadísticos descriptivos")
-st.dataframe(df.describe().round(2), use_container_width=True)
+st.dataframe(df.describe().round(2), width="stretch")
