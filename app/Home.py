@@ -59,3 +59,15 @@ Usá el menú lateral para explorar cada sección del análisis:
 ### Repositorio
 🔗 [Ver código fuente en GitHub](https://github.com/Vilemar130/PI_Mineria_Datos_1)
 """)
+
+from pathlib import Path
+pdf_path = Path(__file__).resolve().parents[1] / "reportes" / "informe_final.pdf"
+if pdf_path.exists():
+    st.markdown("### Documentación")
+    with open(pdf_path, "rb") as f:
+        st.download_button(
+            label="📄 Descargar Informe Final (PDF)",
+            data=f.read(),
+            file_name="informe_final.pdf",
+            mime="application/pdf"
+        )
